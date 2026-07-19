@@ -65,4 +65,4 @@ jobs:
           app-name: 'skilllensapi001'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E8641FAE4D0F43BCA7BC4580BBBFCF63 }}
-          package: backend
+        

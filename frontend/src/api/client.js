@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const client = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://skilllensapi001-hzh2gdhkcce5auhd.centralindia-01.azurewebsites.net',
   timeout: 30000,
 })
 

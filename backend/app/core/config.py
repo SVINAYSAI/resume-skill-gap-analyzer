@@ -16,13 +16,15 @@ class Settings(BaseSettings):
     AZURE_OPENAI_API_VERSION: str
 
     # CORS
-    CORS_ORIGINS: str
+    CORS_ORIGINS: str = "*"
 
     # File upload limits
     MAX_FILE_SIZE_MB: int = 5
 
     @property
     def cors_origin_list(self) -> list[str]:
+        if self.CORS_ORIGINS.strip() == "*":
+            return ["*"]
         return [origin.strip() for origin in self.CORS_ORIGINS.split(",")]
 
     @property

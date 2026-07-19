@@ -27,7 +27,6 @@ jobs:
       # 🛠️ Local Build Section (Optional)
       # The following section in your workflow is designed to catch build issues early on the client side, before deployment. This can be helpful for debugging and validation. However, if this step significantly increases deployment time and early detection is not critical for your workflow, you may remove this section to streamline the deployment process.
       - name: Create and Start virtual environment and Install dependencies
-        working-directory: backend
         run: |
           python -m venv antenv
           source antenv/bin/activate
@@ -39,8 +38,8 @@ jobs:
         with:
           name: python-app
           path: |
-            backend
-            !backend/antenv/
+            .
+            !antenv/
 
       # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:
@@ -64,9 +63,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9ECA0DA6C4E146C2853E6DCA7E69663F }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DC1DCB21686E4C3580B738AB0AF98B5F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B3D8FACE6A3045ADBBD3DF02461D129C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E7CBDE398DD34EF9AF594522194A4F69 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_55A1EF8CA93D417C90AE766DC3D7E4FA }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8A56463FB1E74FC8A68A6BD1C6604248 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -74,5 +73,4 @@ jobs:
         with:
           app-name: 'skilllensapi001'
           slot-name: 'Production'
-          package: backend
           

@@ -1,0 +1,25 @@
+# Dependencies (rebuilt inside container)
+node_modules/
+
+# Build output
+dist/
+
+# Environment files (injected at build time via ARG)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+.dockerignore
+nginx.conf
